@@ -5,59 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <title>Compare System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Web Scraping with JavaScript</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row" id="search">
-            <form id="search-form" action="" method="POST" enctype="multipart/form-data">
-                <div class="form-group col-xs-9">
-                    <input class="form-control" type="text" placeholder="Search" />
-                </div>
-                <div class="form-group col-xs-3">
-                    <button type="submit" class="btn btn-block btn-primary">Search</button>
-                </div>
-            </form>
-        </div>
-        <div class="row" id="filter">
-            <form>
-                <div class="form-group col-sm-3 col-xs-6">
-                    <select data-filter="make" class="filter-make filter form-control">
-                        <option value="">Select Make</option>
-                        <option value="">Show All</option>
-                    </select>
-                </div>
-                <div class="form-group col-sm-3 col-xs-6">
-                    <select data-filter="model" class="filter-model filter form-control">
-                        <option value="">Select Model</option>
-                        <option value="">Show All</option>
-                    </select>
-                </div>
-                <div class="form-group col-sm-3 col-xs-6">
-                    <select data-filter="type" class="filter-type filter form-control">
-                        <option value="">Select Type</option>
-                        <option value="">Show All</option>
-                    </select>
-                </div>
-                <div class="form-group col-sm-3 col-xs-6">
-                    <select data-filter="price" class="filter-price filter form-control">
-                        <option value="">Select Price Range</option>
-                        <option value="">Show All</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="row" id="products">
 
+    <section class="banner">
+        <div class="container">
+            <div class="search-row">
+                <form action="">
+                    <input type="text" placeholder="Search 2M+ recipes">
+                </form>
+            </div>
+            <div class="banner-content">
+                <div class="first"></div>
+                <div class="second"></div>
+            </div>
         </div>
-    </div>
+    </section>
+
 
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="assets/js/app.js"></script>
 
 </html>

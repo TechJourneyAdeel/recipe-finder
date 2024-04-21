@@ -1,16 +1,37 @@
 body {
-    padding-top: 30px;
+    padding: 0px;
+
+    margin: 0px;
+    font-family: "Open Sans", sans-serif;
 }
 
-.product {
-    margin-bottom: 30px;
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
-.product-inner {
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    padding: 10px;
+html {
+    scroll-behavior: smooth;
 }
 
-.product img {
-    margin-bottom: 10px;
+.container {
+    width: 100%;
+    max-width: 1600px;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 0px 70px;
+}
+
+.banner .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
