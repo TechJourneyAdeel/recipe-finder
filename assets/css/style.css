@@ -1,13 +1,9 @@
 body {
     padding: 0px;
-
+    background-color: #fcfcfc;
     margin: 0px;
     font-family: "Open Sans", sans-serif;
 }
-
-
-
-
 
 * {
     margin: 0;
@@ -23,16 +19,97 @@ html {
     scroll-behavior: smooth;
 }
 
+img {
+    max-width: 100%;
+}
+
 .container {
     width: 100%;
     max-width: 1600px;
     height: fit-content;
     margin: 0 auto;
     padding: 0px 70px;
-    padding: 0px 70px;
+}
+
+.banner {
+    padding: 100px 0px 0px;
 }
 
 .banner .row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.search-row input {
+    padding: 20px 30px;
+    border-radius: 1000px;
+    display: inline-block;
+    width: 600px;
+    font-size: 16px;
+    line-height: 18px;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+
+.title h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.recipes-card {
+    padding: 100px 0px;
+}
+
+.card-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+}
+
+
+.card-recepie {
+    position: relative;
+}
+
+.card-img img {
+    /* border-radius: 7px; */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-content {
+    margin-top: 10px;
+}
+
+.card-content h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.card-content span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #afafaf;
+}
+
+
+.card-recepie button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 1000pc;
+    background: #f52525;
+    cursor: pointer;
+}
+
+.card-recepie button img {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
 }
