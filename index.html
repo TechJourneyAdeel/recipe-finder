@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <title>Web Scraping with JavaScript</title>
@@ -22,8 +23,187 @@
                 </form>
             </div>
             <div class="banner-content">
-                <div class="first"></div>
-                <div class="second"></div>
+                <div class="cuisines-title">
+                    <span>PERSONALIZE YOUR EXPERIENCE</span>
+                    <h2>What are your favorite cuisines?</h2>
+                </div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="african">
+                                <img src="assets/images/southwestern.webp" alt="">
+                                <span>African</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="asian">
+                                <img src="assets/images/asian.webp" alt="">
+                                <span>Asian</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="american">
+                                <img src="assets/images/american.webp" alt="">
+                                <span>American</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="british">
+                                <img src="assets/images/cuban.webp" alt="">
+                                <span>British</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="cajun">
+                                <img src="assets/images/irish.webp" alt="">
+                                <span>Cajun</span>
+                            </div>
+                        </div>
+                        <!-- Add the remaining cuisines here -->
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="caribbean">
+                                <img src="assets/images/japanese.webp" alt="">
+                                <span>Caribbean</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="chinese">
+                                <img src="assets/images/chinese.png" alt="">
+                                <span>Chinese</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="eastern_european">
+                                <img src="assets/images/german.webp" alt="">
+                                <span>Eastern European</span>
+
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="european">
+                                <img src="assets/images/irish.webp" alt="">
+                                <span>European</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="french">
+                                <img src="assets/images/french.webp" alt="">
+                                <span>French</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="german">
+                                <img src="assets/images/german.webp" alt="">
+                                <span>German</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="greek">
+                                <img src="assets/images/greek.webp" alt="">
+                                <span>Greek</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="indian">
+                                <img src="assets/images/indian.png" alt="">
+                                <span>Indian</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="irish">
+                                <img src="assets/images/irish.webp" alt="">
+                                <span>Irish</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="italian">
+                                <img src="assets/images/italian.webp" alt="">
+                                <span>Italian</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="japanese">
+                                <img src="assets/images/japanese.webp" alt="">
+                                <span>Japanese</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="jewish">
+                                <img src="assets/images/irish.webp" alt="">
+                                <span>Jewish</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="korean">
+                                <img src="assets/images/mediterranean.png" alt="">
+                                <span>Korean</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="latin_american">
+                                <img src="assets/images/cuban.webp" alt="">
+                                <span>Latin American</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="mediterranean">
+                                <img src="assets/images/mediterranean.png" alt="">
+                                <span>Mediterranean</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="mexican">
+                                <img src="assets/images/mexican.webp" alt="">
+                                <span>Mexican</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="middle_eastern">
+                                <img src="assets/images/portuguese.webp" alt="">
+                                <span>Middle Eastern</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="nordic">
+                                <img src="assets/images/brazilian.webp" alt="">
+                                <span>Nordic</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="southern">
+                                <img src="assets/images/southern.webp" alt="">
+                                <span>Southern</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="spanish">
+                                <img src="assets/images/spanish.webp" alt="">
+                                <span>Spanish</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="thai">
+                                <img src="assets/images/thai.webp" alt="">
+                                <span>Thai</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cuisines" id="vietnamese">
+                                <img src="assets/images/hungarian.webp" alt="">
+                                <span>Vietnamese</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                </div>
+                <div class="cta-btns">
+                    <button class="back">Back</button>
+                    <button class="next">Next</button>
+                </div>
             </div>
         </div>
     </section>
@@ -33,61 +213,26 @@
                 <h2>Just For You</h2>
             </div>
             <div class="card-row">
-                <div class="card-recepie">
-
-                    <div class="card-img">
-                        <a href="#"><img src="assets/images/unnamed.webp" alt=""></a>
-                    </div>
-
-                    <button><img src="assets/images/heart.svg" alt=""></button>
-
-                    <div class="card-content">
-                        <a href="#">
-                            <h4>Easy Chicken Tacos</h4>
-                        </a>
-                        <span>Damn Delicious</span>
-                    </div>
-
-                </div>
-                <div class="card-recepie">
-                    <a href="">
-                        <div class="card-img">
-                            <img src="assets/images/unnamed.webp" alt="">
-                        </div>
-                        <div class="card-content">
-                            <h4>Easy Chicken Tacos</h4>
-                            <span>Damn Delicious</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-recepie">
-                    <a href="">
-                        <div class="card-img">
-                            <img src="assets/images/unnamed.webp" alt="">
-                        </div>
-                        <div class="card-content">
-                            <h4>Easy Chicken Tacos</h4>
-                            <span>Damn Delicious</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-recepie">
-                    <a href="">
-                        <div class="card-img">
-                            <img src="assets/images/unnamed.webp" alt="">
-                        </div>
-                        <div class="card-content">
-                            <h4>Easy Chicken Tacos</h4>
-                            <span>Damn Delicious</span>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 8.5,
+            spaceBetween: 30,
+            loop: true,
+            pagination: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 
 </html>

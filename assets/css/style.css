@@ -31,14 +31,113 @@ img {
     padding: 0px 70px;
 }
 
+.search-row {
+    text-align: center;
+}
+
 .banner {
-    padding: 100px 0px 0px;
+    padding: 100px 0px;
+    background-image: url(../images/banner.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.banner .container {
+    padding-right: 0px;
 }
 
 .banner .row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.cuisines-title {
+    margin: 70px 0px 50px;
+    text-align: center;
+}
+
+.banner .container {
+    padding-right: 0px;
+}
+
+.cuisines-title span {
+    color: #707070;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.cuisines-title h2 {
+    font-size: 34px;
+    line-height: 1.235294117647059;
+    color: #4a4a4a;
+}
+
+.cuisines {
+    position: relative;
+    border-radius: 1000px;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cuisines.active {
+    background-color: #3a9691;
+    animation: 800ms onboardingPulse ease forwards;
+}
+
+@keyframes onboardingPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    75% {
+        transform: scale(0.975);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cuisines img {
+    transition: opacity 400ms ease;
+}
+
+.cuisines.active img {
+    opacity: 0;
+}
+
+.banner-content .swiper
+{
+    overflow-y: auto;
+    overflow-x: clip;
+}
+
+.cuisines span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: fit-content;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+}
+
 
 .search-row input {
     padding: 20px 30px;
@@ -51,6 +150,30 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset;
 }
 
+.cta-btns {
+    margin-top: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cta-btns button {
+    box-shadow: 0 0 0 2px #3a9691;
+    background-color: #3a9691;
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 1000px;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+}
+
+.cta-btns button:first-child {
+    background-color: transparent;
+    color: #3a9691;
+}
 
 .title h2 {
     font-size: 40px;
@@ -59,7 +182,7 @@ img {
 }
 
 .recipes-card {
-    padding: 100px 0px;
+    padding: px 0px 100px;
 }
 
 .card-row {
