@@ -5,6 +5,11 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+#myCarousel {
+    --f-carousel-spacing: 20px;
+    --f-carousel-slide-width: 14%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -117,8 +122,7 @@ img {
     opacity: 0;
 }
 
-.banner-content .swiper
-{
+.banner-content .swiper {
     overflow-y: auto;
     overflow-x: clip;
 }
@@ -235,4 +239,57 @@ img {
     width: 25px;
     height: 25px;
     filter: invert(1);
+}
+
+.cuisines-recepie {
+    position: relative;
+}
+
+.cuisines-recepie button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 1000pc;
+    background: #f52525;
+    cursor: pointer;
+}
+
+.cuisines-recepie button img {
+    width: 15px;
+    height: 15px;
+    filter: invert(1);
+}
+
+.cuisines-img a {
+    display: inline-block;
+}
+
+.cuisines-img a img {
+    border-radius: 6px;
+}
+
+.cuisines-content h4 {
+    color: #000;
+    font-size: 15px;
+    margin-top: 10px;
+    max-width: 190px;
+    font-weight: 600;
+}
+
+
+.site-cuisines {
+    position: relative;
+}
+
+.cuisines-button-next,
+.cuisines-button-prev {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 1000px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
 }

@@ -1,3 +1,5 @@
+// ~~~~ Random recipe ~~~~~
+
 window.addEventListener("DOMContentLoaded", () => {
   let apiKey = "55c52881e4f083db749d5ba92931936f";
   const recipesPerPage = 6;
@@ -68,4 +70,92 @@ window.addEventListener("DOMContentLoaded", () => {
     `;
     row.appendChild(div);
   };
+});
+
+// ~~~~ Recipe Type Cus ~~~~~
+
+window.addEventListener("DOMContentLoaded", () => {
+  const fetchCusine = (types) => {
+    const apiKey = "ca67003922c54fb68375702b127d4223";
+    const foodType = String(types);
+
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=25&cuisine=${foodType}`
+    )
+      .then((respone) => respone.json())
+      .then((response) => {
+        console.log(response);
+        if (response) {
+          cuisinesRecipe(response);
+        } else {
+          alert("reponse not comeing");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const cuisinesRecipe = (recieps) => {
+    const response = recieps.results;
+
+    response.forEach((recips) => {
+      const row = document.querySelector(".cuisines-recipe .swiper-wrapper");
+      const div = document.createElement("div");
+      div.classList.add("swiper-slide");
+      div.innerHTML = `
+      <div class="cuisines-recepie"> 
+        <div class="cuisines-img">
+          <a href="#"><img src="${recips.image}" alt=""></a>
+       </div>
+        <button><img src="assets/images/heart.svg" alt=""></button>
+        <div class="cuisines-content">
+          <a href="#">
+            <h4>${recips.title}</h4>
+          </a>
+        </div>
+      </div>
+     `;
+      row.appendChild(div);
+    });
+
+    const cuisineRow = document.querySelector(".site-cuisines");
+    cuisineRow.innerHTML = "";
+    console.log(cuisineRow);
+  };
+
+  const types = document.querySelectorAll(".cuisines");
+
+  types.forEach((types) => {
+    types.addEventListener("click", () => {
+      types.classList.toggle("active");
+    });
+  });
+
+  const nextBtn = document.querySelector(".cta-btns .next");
+
+  nextBtn.addEventListener("click", () => {
+    const types = document.querySelectorAll(".cuisines.active");
+
+    const ids = Array.from(types).map((id) => {
+      return id.getAttribute("id");
+    });
+
+    if (!ids.length == 0) {
+      fetchCusine(ids);
+    } else {
+      alert("Please Select Food type");
+    }
+  });
+
+  // back cuisine
+
+  const back = document.querySelector(".myCuisines");
+  const backBtn = document.querySelector(".cta-btns .back");
+  console.log(back);
+
+  backBtn.addEventListener("click", () => {
+    document.querySelector(".cuisines-recipe .swiper-wrapper").innerHTML = "";
+    document.querySelector(".site-cuisines").appendChild(back);
+  });
 });
