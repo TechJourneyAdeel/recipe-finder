@@ -2,21 +2,21 @@
 
 window.addEventListener("DOMContentLoaded", () => {
   let apiKey = "55c52881e4f083db749d5ba92931936f";
+  let startRecipes = 0; // 12
   const recipesPerPage = 6;
   let currentPage = 1;
-  let totalRecipes = 0; // 12
   let recipes = [];
 
   // Function to fetch recipes
   const fetchRecipes = () => {
     fetch(
-      `https://api.edamam.com/search?q=biryani&app_id=b16a6ebc&app_key=${apiKey}&from=${totalRecipes}&to=${
-        totalRecipes + recipesPerPage
+      `https://api.edamam.com/search?q=biryani&app_id=b16a6ebc&app_key=${apiKey}&from=${startRecipes}&to=${
+        startRecipes + recipesPerPage
       }`
     )
       .then((response) => response.json())
       .then((data) => {
-        totalRecipes += recipesPerPage; // Increment totalRecipes
+        startRecipes += recipesPerPage; // Increment startRecipes
         recipes = [...recipes, ...data.hits]; // Concatenate new recipes to existing recipes array
         displayRecipes();
       })

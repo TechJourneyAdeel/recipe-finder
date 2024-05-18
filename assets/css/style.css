@@ -45,6 +45,8 @@ img {
     background-image: url(../images/banner.jpg);
     height: 100%;
     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .banner .container {
@@ -186,7 +188,9 @@ img {
 }
 
 .recipes-card {
-    padding: px 0px 100px;
+    padding: 0px 0px 100px;
+    position: relative;
+    padding-bottom: 100px;
 }
 
 .card-row {
@@ -279,17 +283,138 @@ img {
 }
 
 
-.site-cuisines {
+.site-cuisines,
+.cuisines-recipe {
     position: relative;
 }
 
 .cuisines-button-next,
-.cuisines-button-prev {
-    width: 30px;
-    height: 30px;
+.cuisinesRecipe-button-next,
+.cuisines-button-prev,
+.cuisinesRecipe-button-prev {
+    width: 45px;
+    height: 45px;
     background: #fff;
     border-radius: 1000px;
     position: absolute;
     top: 50%;
     transform: translate(-50%);
+    cursor: pointer;
+    z-index: 1;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.cuisinesRecipe-button-next,
+.cuisines-button-next {
+    right: 30px;
+}
+
+.cuisines-button-next img,
+.cuisinesRecipe-button-next img,
+.cuisines-button-prev img,
+.cuisinesRecipe-button-prev img {
+    width: 15px;
+    height: 15px;
+}
+
+.cuisines-button-prev img,
+.cuisinesRecipe-button-prev img {
+    transform: rotate(180deg);
+}
+
+.cuisines-recipe:has(.swiper-wrapper:empty) :is(.cuisinesRecipe-button-next, .cuisinesRecipe-button-prev) {
+    display: none;
+}
+
+/* loader Start */
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.bar {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background-color: rgb(0 0 0 / 50%);
+    border-radius: 10px;
+    animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+    height: 35px;
+    margin: 0 5px;
+    animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+    animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+    20% {
+        background-color: #ffff;
+        transform: scaleY(1.5);
+    }
+
+    40% {
+        transform: scaleY(1);
+
+    }
+}
+
+/* loader End */
+
+/* Sinlge Recipe page Start */
+
+.single-recipe-banner {
+    padding: 120px 0px;
+}
+
+.single-banner-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 0px 100px;
+    align-items: center;
+    border-bottom: solid 1px #e3e3e3;
+}
+
+.single-col h1 {
+    font-size: 40px;
+
+}
+
+.single-image {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.single-image img {
+    width: 100%;
+    aspect-ratio: 1/.8;
+    object-fit: cover;
+    display: block;
+}
+
+/* Sinlge Recipe page End */
+
+.single-col>span {
+    margin: 10px 0px;
+    display: inline-block;
+    font-weight: 700;
+    color: #bababa;
+    font-size: 12px;
+}
+
+.single-recipe-count {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
