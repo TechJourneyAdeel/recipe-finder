@@ -19,6 +19,9 @@ window.addEventListener("DOMContentLoaded", () => {
         startRecipes += recipesPerPage; // Increment startRecipes
         recipes = [...recipes, ...data.hits]; // Concatenate new recipes to existing recipes array
         displayRecipes();
+
+        // Other Block Code
+        moveSingle();
       })
       .catch((error) => {
         console.error(error);
@@ -58,11 +61,11 @@ window.addEventListener("DOMContentLoaded", () => {
     div.classList.add("card-recepie");
     div.innerHTML = `
       <div class="card-img">
-        <a href="#"><img src="${image}" alt=""></a>
+        <a href="javascript:;"><img src="${image}" alt=""></a>
       </div>
       <button><img src="assets/images/heart.svg" alt=""></button>
       <div class="card-content">
-        <a href="#">
+        <a href="javascript:;">
           <h4>${title}</h4>
         </a>
         <span>${source}</span>
@@ -152,10 +155,33 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const back = document.querySelector(".myCuisines");
   const backBtn = document.querySelector(".cta-btns .back");
-  console.log(back);
 
   backBtn.addEventListener("click", () => {
     document.querySelector(".cuisines-recipe .swiper-wrapper").innerHTML = "";
     document.querySelector(".site-cuisines").appendChild(back);
   });
 });
+
+// ~~~~~~Go to Single Recipe ~~~~~~
+
+const moveSingle = () => {
+  const recipeCart = document.querySelectorAll(".card-recepie");
+
+  recipeCart.forEach((cards) => {
+    cards.addEventListener("click", (event) => {
+      if (event.target.tagName == "IMG" || event.target.tagName == "H4") {
+        const query = cards
+          .querySelector("h4")
+          .innerText.trim()
+          .toLocaleLowerCase()
+          .replace(/\s+/g, "-");
+        console.log(query);
+
+        const url = window.location.href;
+        console.log(url);
+
+        window.location.href = `${url}single-recipe.html?title=${query}`;
+      }
+    });
+  });
+};

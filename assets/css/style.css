@@ -202,6 +202,7 @@ img {
 
 .card-recepie {
     position: relative;
+    cursor: pointer;
 }
 
 .card-img img {
@@ -375,7 +376,7 @@ img {
 /* Sinlge Recipe page Start */
 
 .single-recipe-banner {
-    padding: 120px 0px;
+    padding: 80px 0px;
 }
 
 .single-banner-row {
@@ -384,6 +385,7 @@ img {
     gap: 0px 100px;
     align-items: center;
     border-bottom: solid 1px #e3e3e3;
+    padding-bottom: 80px;
 }
 
 .single-col h1 {
@@ -414,7 +416,119 @@ img {
     font-size: 12px;
 }
 
+
+
+
 .single-recipe-count {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin: 30px 0px;
+    gap: 0px 20px;
+    max-width: 500px;
+}
+
+.single-count-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-count-col:not(:last-child) {
+    border-right: solid 1px #bababa;
+}
+
+
+
+.single-count-col span {
+    color: #4a4a4a;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 100;
+}
+
+.single-count-col small {
+    font-size: 13px;
+    line-height: 1.714285714285714;
+    text-transform: capitalize;
+}
+
+.single-ingredient {
+    padding-bottom: 80px;
+}
+
+.secondery-container {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+.single-ingredient h2 {
+    font-size: 27px;
+    line-height: 1.333333333333333;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.ingredient-row ul li {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    list-style: circle;
+    list-style-position: inside;
+}
+
+.single-count-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-count-col:not(:last-child) {
+    border-right: solid 1px #bababa;
+}
+
+section.single-nutritionView {
+    padding: 0px 0px 80px 0px;
+}
+
+.nutritionView-row {
+    position: relative;
+}
+
+.nutrition-bubble {
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nutrition-bubble span {
+    font-size: 24px;
+    font-weight: 100;
+    color: #bababa;
+}
+
+.nutrition-bubble small {
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: #bababa;
+}
+
+.ingredient-title {
+    margin-bottom: 30px;
+}
+
+.single-nutritionView .ingredient-title h2 {
+    line-height: 1.333333333333333;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.single-nutritionView .ingredient-title p {
+    font-size: 14px;
+    line-height: 1.714285714285714;
+    color: #4a4a4a;
 }
