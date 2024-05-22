@@ -399,6 +399,11 @@ img {
     position: relative;
 }
 
+.single-image::after {
+    opacity: 0;
+    transition: all 0.3s;
+}
+
 .single-image:has(img[src=""])::after {
     content: "";
     position: absolute;
@@ -407,6 +412,8 @@ img {
     height: 100%;
     width: 100%;
     background: #E16120;
+    opacity: 1;
+    transition: all 0.3s;
 }
 
 
