@@ -125,7 +125,7 @@ img {
 }
 
 .banner-content .swiper {
-    overflow-y: auto;
+    overflow-y: visible;
     overflow-x: clip;
 }
 
@@ -459,6 +459,7 @@ img {
 .secondery-container {
     max-width: 800px;
     margin: 0px auto;
+    overflow: hidden;
 }
 
 .single-ingredient h2 {
@@ -488,7 +489,10 @@ img {
 
 section.single-nutritionView {
     padding: 0px 0px 80px 0px;
+    overflow: hidden;
 }
+
+
 
 .nutritionView-row {
     position: relative;
@@ -502,6 +506,7 @@ section.single-nutritionView {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    aspect-ratio: 1/1;
 }
 
 .nutrition-bubble span {
