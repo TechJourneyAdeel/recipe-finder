@@ -5,6 +5,7 @@ fetch(
 )
   .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     banner(data.hits);
   })
   .catch((error) => {
@@ -19,7 +20,11 @@ const banner = (data) => {
     const label = item.recipe.label.toLocaleLowerCase();
 
     if (label === title) {
-      console.log(label, title);
+      const banner = document.querySelector(".single-banner-row");
+      banner.querySelector("h1").innerText = `${item.recipe.label}`;
+      banner
+        .querySelector(".single-image img")
+        .setAttribute("src", `${item.recipe.image}`);
     }
   });
 };
