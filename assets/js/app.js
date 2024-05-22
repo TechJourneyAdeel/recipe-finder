@@ -177,10 +177,10 @@ const moveSingle = () => {
           .replace(/\s+/g, "-");
         console.log(query);
 
-        const url = window.location.href;
-        console.log(url);
+        // const url = window.location.href;
+        // console.log(url);
 
-        window.location.href = `${url}single-recipe.html?title=${query}`;
+        window.location.href = `single-recipe.html?title=${query}`;
       }
     });
   });

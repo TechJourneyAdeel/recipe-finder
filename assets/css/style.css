@@ -49,6 +49,10 @@ img {
     background-size: cover;
 }
 
+.inner-banner {
+    background-image: none;
+    padding-bottom: 0px;
+}
 
 .logo {
     padding-bottom: 25px;
@@ -218,11 +222,20 @@ img {
     cursor: pointer;
 }
 
+.card-img {
+    position: relative;
+}
+
+.card-img a {
+    display: block;
+}
+
 .card-img img {
     /* border-radius: 7px; */
     width: 100%;
     height: 300px;
     object-fit: cover;
+    background: #ff8d54;
 }
 
 .card-content {
@@ -412,19 +425,21 @@ img {
     position: relative;
 }
 
-.single-image::after {
+.single-image img::after,
+.card-img img::after {
     opacity: 0;
     transition: all 0.3s;
 }
 
-.single-image:has(img[src=""])::after {
+.single-image img[src=""]::after,
+.card-img img[src=""]::after {
     content: "";
     position: absolute;
     left: 0px;
     top: 0px;
     height: 100%;
     width: 100%;
-    background: #E16120;
+    background: #ff8d54;
     opacity: 1;
     transition: all 0.3s;
 }
@@ -432,9 +447,11 @@ img {
 
 .single-image img {
     width: 100%;
+    min-height: 343px;
     aspect-ratio: 1/.8;
     object-fit: cover;
     display: block;
+    background: #ff8d54;
 }
 
 /* Sinlge Recipe page End */
