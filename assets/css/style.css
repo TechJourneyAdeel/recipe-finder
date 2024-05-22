@@ -396,6 +396,17 @@ img {
 .single-image {
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
+}
+
+.single-image:has(img[src=""])::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background: #E16120;
 }
 
 

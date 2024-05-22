@@ -16,14 +16,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const banner = (data) => {
     const urlParams = new URLSearchParams(window.location.search);
     const title = urlParams.get("title").replace(/-/g, " ");
-    console.log(title);
 
     data.forEach((item) => {
       const label = item.recipe.label.toLocaleLowerCase();
 
       if (label === title) {
         const banner = document.querySelector(".single-banner-row");
-        console.log(banner);
         banner.querySelector("h1").innerText = `${item.recipe.label}`;
         banner
           .querySelector(".single-image img")
