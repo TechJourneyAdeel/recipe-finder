@@ -84,14 +84,39 @@ const similarRecipe = (recipe) => {
   const url = new URLSearchParams(window.location.search);
   const title = url.get("title").replace(/-/g, " ").trim();
 
+  let similar = (type) => {
+    ShowSimilarDoc = (similar) => {
+      const similarParent = document.querySelector(".single-may-also-row");
+      similar.forEach((simi) => {
+        const div = document.createElement("div");
+        div.classList.add("cuisines-recepie");
+        div.innerHTML = `
+        <div class="cuisines-img">
+                        <a href="#"><img src="${simi.recipe.image}" alt=""></a>
+                    </div>
+                    <button><img src="assets/images/heart.svg" alt=""></button>
+                    <div class="cuisines-content">
+                        <a href="#">
+                            <h4>${simi.recipe.label}</h4>
+                        </a>
+                    </div>
+        `;
+        similarParent.append(div);
+      });
+    };
+
+    const similarRec = recipe.hits.filter((rip) => {
+      if (rip.recipe.cuisineType[0] == type) {
+        return rip.recipe;
+      }
+    });
+
+    ShowSimilarDoc(similarRec);
+  };
+
   recipe.hits.forEach((list) => {
-    if (list.recipe.label.trim() === title) {
-      console.log("yes");
-      // similar(recipe.mealType);
+    if (list.recipe.label.toLocaleLowerCase() === title) {
+      similar(list.recipe.cuisineType);
     }
   });
-
-  // const similar = (type) => {
-  //   console.log(type);
-  // };
 };

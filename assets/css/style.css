@@ -600,3 +600,13 @@ section.single-nutritionView {
 .single-may-also {
     padding-bottom: 80px;
 }
+
+.cuisines-img a {
+    width: 100%;
+}
+
+.cuisines-img a img {
+    max-height: 143px;
+    object-fit: cover;
+    width: 100%;
+}
