@@ -6,8 +6,8 @@ window.addEventListener("DOMContentLoaded", () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       banner(data.hits);
+      similarRecipe(data);
     })
     .catch((error) => {
       console.error(error);
@@ -21,12 +21,77 @@ window.addEventListener("DOMContentLoaded", () => {
       const label = item.recipe.label.toLocaleLowerCase();
 
       if (label === title) {
-        const banner = document.querySelector(".single-banner-row");
-        banner.querySelector("h1").innerText = `${item.recipe.label}`;
-        banner
-          .querySelector(".single-image img")
-          .setAttribute("src", `${item.recipe.image}`);
+        SgleRcipCotnt(item.recipe);
       }
     });
   };
 });
+
+const SgleRcipCotnt = (recipe) => {
+  // Banner
+
+  const banner = document.querySelector(".single-banner-row");
+  banner.querySelector("h1").innerText = `${recipe.label}`;
+  banner
+    .querySelector(".single-image img")
+    .setAttribute("src", `${recipe.image}`);
+  banner.querySelector("span").innerText = `${recipe.mealType}`;
+  banner.querySelector(
+    "p"
+  ).innerText = `${recipe.cuisineType} ${recipe.dietLabels} ${recipe.dishType}`;
+  banner.querySelector(
+    ".single-recipe-count .single-count-col:first-child span"
+  ).innerText = `${recipe.ingredientLines.length}`;
+  banner.querySelector(
+    ".single-recipe-count .single-count-col:nth-child(2) span"
+  ).innerText = `${recipe.totalTime}`;
+  banner.querySelector(
+    ".single-recipe-count .single-count-col:last-child span"
+  ).innerText = `${Math.floor(recipe.calories)}`;
+
+  // Ingredient
+
+  const Ingredient = document.querySelector(".single-ingredient ul");
+
+  recipe.ingredientLines.forEach((ingredilist) => {
+    const li = document.createElement("li");
+    li.innerText = `${ingredilist}`;
+    Ingredient.append(li);
+  });
+
+  // Nutrition
+
+  const Nutrition = document.querySelector(
+    ".single-nutritionView .swiper-wrapper"
+  );
+
+  Object.values(recipe.totalNutrients).forEach((indre) => {
+    const buble = document.createElement("div");
+    buble.classList.add("swiper-slide", "nutrition-bubble");
+    buble.setAttribute(
+      "style",
+      "background-image: linear-gradient(to top, rgb(190, 218, 217) 499.45%, rgb(245, 245, 245) 499.45%);"
+    );
+    buble.innerHTML = `
+    <span>${Math.round(indre.quantity)}</span>
+    <small>${indre.label}</small>
+  `;
+    Nutrition.append(buble);
+  });
+};
+
+const similarRecipe = (recipe) => {
+  const url = new URLSearchParams(window.location.search);
+  const title = url.get("title").replace(/-/g, " ").trim();
+
+  recipe.hits.forEach((list) => {
+    if (list.recipe.label.trim() === title) {
+      console.log("yes");
+      // similar(recipe.mealType);
+    }
+  });
+
+  // const similar = (type) => {
+  //   console.log(type);
+  // };
+};

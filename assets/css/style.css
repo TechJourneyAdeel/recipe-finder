@@ -560,14 +560,15 @@ section.single-nutritionView {
 .nutrition-bubble span {
     font-size: 24px;
     font-weight: 100;
-    color: #bababa;
+    color: #8d8d8d;
 }
 
 .nutrition-bubble small {
-    font-size: 12px;
+    font-size: 8px;
     text-transform: uppercase;
-    line-height: 1.5;
-    color: #bababa;
+    color: #858585;
+    text-align: center;
+    line-height: 13px;
 }
 
 .ingredient-title {
@@ -584,4 +585,18 @@ section.single-nutritionView {
     font-size: 14px;
     line-height: 1.714285714285714;
     color: #4a4a4a;
+}
+
+.single-may-also-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.single-col {
+    text-transform: capitalize;
+}
+
+.single-may-also {
+    padding-bottom: 80px;
 }
