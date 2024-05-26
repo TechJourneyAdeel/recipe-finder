@@ -5,6 +5,10 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+body:has(nav.active.save-list) {
+    overflow-y: hidden;
+}
+
 #myCarousel {
     --f-carousel-spacing: 20px;
     --f-carousel-slide-width: 14%;
@@ -259,17 +263,20 @@ img {
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 1000pc;
-    background: #f52525;
+    background: #fff;
     cursor: pointer;
 }
 
-.card-recepie button img {
-    width: 25px;
-    height: 25px;
-    filter: invert(1);
+.card-recepie button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card-recepie.recipe-save button svg {
+    fill: #f00;
 }
 
 .cuisines-recepie {
@@ -595,6 +602,18 @@ section.single-nutritionView {
 
 .single-col {
     text-transform: capitalize;
+    position: relative;
+}
+
+
+.single-col :is(h1, span, p, .single-recipe-count) {
+    opacity: 1;
+    transform: all 0.3s ease-in-out;
+}
+
+.load .single-col :is(h1, span, p, .single-recipe-count) {
+    opacity: 0;
+    transform: all 0.3s;
 }
 
 .single-may-also {
@@ -609,4 +628,197 @@ section.single-nutritionView {
     max-height: 143px;
     object-fit: cover;
     width: 100%;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.load .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #e16120;
+    animation: spinner .6s linear infinite;
+}
+
+.load {
+    overflow: hidden;
+}
+
+
+/* Favorite Sidebar */
+
+nav.save-list {
+    position: relative;
+}
+
+nav.save-list .ovrly {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0 0 0 / 60%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    cursor: pointer;
+}
+
+nav.active.save-list .ovrly {
+    opacity: 1;
+    pointer-events: all;
+}
+
+nav.save-list .panel {
+    padding: 30px;
+    background: #fff;
+    position: fixed;
+    width: 400px;
+    height: 100vh;
+    transform: translateX(400px);
+    top: 0px;
+    right: 0px;
+    z-index: 11;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    transition: all 0.4s;
+}
+
+nav.active.save-list .panel {
+    transform: translateX(0px);
+    transition: all 0.4s;
+}
+
+.panel-header {
+    padding: 10px 10px 20px 10px;
+    border-bottom: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+
+.panel-header h4 {
+    color: #242424;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-header span {
+    display: block;
+    width: 20px;
+    cursor: pointer;
+}
+
+.save-list>ul {
+    position: fixed;
+    top: 150px;
+    right: 150px;
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    gap: 20px 0px;
+    z-index: 3;
+}
+
+.save-list>ul li {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.save-list>ul li svg {
+    width: 25px;
+}
+
+.panel-body {
+    padding: 10px 0px 30px;
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.panel-body::-webkit-scrollbar-track {
+    background-color: #ff202000;
+}
+
+
+.panel-body::-webkit-scrollbar {
+    width: 2px;
+    background-color: #25252554;
+}
+
+.panel-body::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #e16120;
+}
+
+
+.cart-list {
+    display: flex;
+    gap: 0px 10px;
+    align-items: center;
+    /* background-color: #fff; */
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.18), 0 0 1px rgba(0, 0, 0, 0.18) inset;
+    padding: 20px 40px 20px 20px;
+    border: solid 1px #e3e3e3;
+    position: relative;
+    margin-top: 20px;
+}
+
+.cart-list .cart-image {
+    width: 100%;
+    max-width: 116px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.cart-image img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cart-content h4 {
+    font-size: 15px;
+    letter-spacing: -0.5px;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.cart-content span {
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: capitalize;
+}
+
+.cart-list small {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 15px;
+    right: 15px;
+    opacity: 0.6;
+    cursor: pointer;
 }

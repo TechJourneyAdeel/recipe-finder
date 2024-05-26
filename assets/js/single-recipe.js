@@ -24,6 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
         SgleRcipCotnt(item.recipe);
       }
     });
+
+    document.body.classList.remove("load");
   };
 });
 
