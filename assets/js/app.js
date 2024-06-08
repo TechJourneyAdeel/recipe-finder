@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const recipesPerPage = 6;
   let currentPage = 1;
   let recipes = [];
+  let saveRecipePermission = false;
 
   // Function to fetch recipes
   const fetchRecipes = () => {
@@ -170,33 +171,38 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const saveRecipe = (recipes) => {
   const recipeCards = document.querySelectorAll(".card-recepie");
-  let selectedRecipeTitle;
-  let SelectedRecip = [];
 
   recipeCards.forEach((card) => {
-    card.addEventListener("click", (evt) => {
-      if (evt.target.tagName === "BUTTON") {
-        selectedRecipeTitle = card.querySelector("h4").innerText;
-
-        // Check if the recipe is already in SelectedRecip
-        const isAlreadySelected = SelectedRecip.some(
-          (recipe) =>
-            recipe.recipe.label.toLocaleLowerCase() ===
-            selectedRecipeTitle.toLocaleLowerCase()
-        );
-
-        if (isAlreadySelected) {
-          alert("Recipe already added on your favorite list");
-        } else {
-          filterRecipes();
-          document.querySelector(".save-list").classList.add("active");
-          card.classList.add("recipe-save");
-        }
-      }
-    });
+    // Remove any existing event listener to avoid duplication
+    card.removeEventListener("click", handleCardClick);
+    // Add event listener
+    card.addEventListener("click", handleCardClick);
   });
 
-  const filterRecipes = () => {
+  function handleCardClick(evt) {
+    if (evt.target.tagName === "BUTTON") {
+      const selectedRecipeTitle =
+        evt.currentTarget.querySelector("h4").innerText;
+      let SelectedRecip = JSON.parse(localStorage.getItem("saveData")) || [];
+
+      // Check if the recipe is already in SelectedRecip
+      const isAlreadySelected = SelectedRecip.some(
+        (recipe) =>
+          recipe.recipe.label.toLocaleLowerCase() ===
+          selectedRecipeTitle.toLocaleLowerCase()
+      );
+
+      if (isAlreadySelected) {
+        console.log("Recipe already added on your favorite list");
+      } else {
+        filterRecipes(selectedRecipeTitle, SelectedRecip);
+        document.querySelector(".save-list").classList.add("active");
+        evt.currentTarget.classList.add("recipe-save");
+      }
+    }
+  }
+
+  function filterRecipes(selectedRecipeTitle, SelectedRecip) {
     recipes.forEach((recipe) => {
       if (
         recipe.recipe.label.toLocaleLowerCase() ===
@@ -207,24 +213,24 @@ const saveRecipe = (recipes) => {
     });
 
     SaveOnData(SelectedRecip);
-  };
-};
+  }
 
-const SaveOnData = (data) => {
-  console.log(data);
-  localStorage.setItem("saveData", JSON.stringify(data));
-  ShowFavList();
-};
+  function SaveOnData(data) {
+    console.log(data);
+    localStorage.setItem("saveData", JSON.stringify(data));
+    ShowFavList();
+  }
 
-const ShowFavList = () => {
-  const getData = JSON.parse(localStorage.getItem("saveData"));
-  const panelBody = document.querySelector(".panel-body");
+  function ShowFavList() {
+    const getData = JSON.parse(localStorage.getItem("saveData"));
+    const panelBody = document.querySelector(".panel-body");
 
-  if (getData) {
-    getData.forEach((recipe) => {
-      const div = document.createElement("div");
-      div.classList.add("cart-list");
-      div.innerHTML = `
+    if (getData) {
+      panelBody.innerHTML = ""; // Clear existing content
+      getData.forEach((recipe) => {
+        const div = document.createElement("div");
+        div.classList.add("cart-list");
+        div.innerHTML = `
           <div class="cart-image">
             <img src="${recipe.recipe.image}" alt="">
           </div>
@@ -238,13 +244,14 @@ const ShowFavList = () => {
               <h4>${recipe.recipe.label}</h4>
               <span>${recipe.recipe.cuisineType}</span>
           </div>
-              `;
-      panelBody.append(div);
-    });
+        `;
+        panelBody.append(div);
+      });
+    }
   }
-};
 
-ShowFavList();
+  ShowFavList();
+};
 
 window.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".save-list");
